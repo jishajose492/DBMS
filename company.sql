@@ -34,6 +34,7 @@ CREATE TABLE departments (
 	FOREIGN KEY (location_id) REFERENCES locations (location_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
 CREATE TABLE employees (
 	employee_id INT (11) AUTO_INCREMENT PRIMARY KEY,
 	first_name VARCHAR (20) DEFAULT NULL,
@@ -58,3 +59,6 @@ CREATE TABLE dependents (
 	employee_id INT (11) NOT NULL,
 	FOREIGN KEY (employee_id) REFERENCES employees (employee_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+ALTER TABLE departments RENAME TO dept;
+ALTER TABLE employees MODIFY COLUMN salary smallint;
+ALTER TABLE employees ADD commission varchar(15);
